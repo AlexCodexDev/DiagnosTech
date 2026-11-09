@@ -1,111 +1,276 @@
+
+@import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
+@import "@fontsource-variable/geist";
+
+/* Dark mode variant */
+@custom-variant dark (&:is(.dark *));
+
+/* ========================================
+   THEME CONFIGURATION
+======================================== */
+
+@theme inline {
+  --font-sans: "Geist Variable", sans-serif;
+  --font-heading: "Geist Variable", sans-serif;
+
+  /* Main colors */
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+
+  --color-destructive: var(--destructive);
+
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+
+  /* Custom palette */
+  --color-brand-primary: #1A3229;
+  --color-brand-button: #E76F51;
+  --color-brand-accent: #C1D7B0;
+  --color-brand-canvas: #FAF9F5;
+  --color-brand-card: #FFFFFF;
+
+  /* Sidebar */
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+
+  /* Charts */
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+
+  /* Radius */
+  --radius-sm: calc(var(--radius) * 0.6);
+  --radius-md: calc(var(--radius) * 0.8);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) * 1.4);
+  --radius-2xl: calc(var(--radius) * 1.8);
+  --radius-3xl: calc(var(--radius) * 2.2);
+
+  /* Text */
+  --text-caption: 0.75rem;
+  --text-label: 0.875rem;
+  --text-body: 1rem;
+  --text-lead: 1.125rem;
+}
+
+/* ========================================
+   LIGHT THEME
+======================================== */
+
 :root {
-  --text: #6b6375;
-  --text-h: #08060d;
-  --bg: #fff;
-  --border: #e5e4e7;
-  --code-bg: #f4f3ec;
-  --accent: #aa3bff;
-  --accent-bg: rgba(170, 59, 255, 0.1);
-  --accent-border: rgba(170, 59, 255, 0.5);
-  --social-bg: rgba(244, 243, 236, 0.5);
-  --shadow:
-    rgba(0, 0, 0, 0.1) 0 10px 15px -3px, rgba(0, 0, 0, 0.05) 0 4px 6px -2px;
+  color-scheme: light;
 
-  --sans: system-ui, 'Segoe UI', Roboto, sans-serif;
-  --heading: system-ui, 'Segoe UI', Roboto, sans-serif;
-  --mono: ui-monospace, Consolas, monospace;
+  --background: #FAF9F5;
+  --foreground: #1A3229;
 
-  font: 18px/145% var(--sans);
-  letter-spacing: 0.18px;
-  color-scheme: light dark;
-  color: var(--text);
-  background: var(--bg);
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  --card: #FFFFFF;
+  --card-foreground: #1A3229;
 
-  @media (max-width: 1024px) {
-    font-size: 16px;
+  --popover: #FFFFFF;
+  --popover-foreground: #1A3229;
+
+  --primary: #E76F51;
+  --primary-foreground: #FFFFFF;
+
+  --secondary: #C1D7B0;
+  --secondary-foreground: #1A3229;
+
+  --muted: #F1F3EC;
+  --muted-foreground: #64756B;
+
+  --accent: #C1D7B0;
+  --accent-foreground: #1A3229;
+
+  --destructive: #DC2626;
+
+  --border: #C1D7B0;
+  --input: #C1D7B0;
+  --ring: #E76F51;
+
+  /* Charts */
+  --chart-1: #E76F51;
+  --chart-2: #1A3229;
+  --chart-3: #C1D7B0;
+  --chart-4: #D9A441;
+  --chart-5: #64756B;
+
+  /* Sidebar */
+  --sidebar: #FFFFFF;
+  --sidebar-foreground: #1A3229;
+  --sidebar-primary: #E76F51;
+  --sidebar-primary-foreground: #FFFFFF;
+  --sidebar-accent: #F1F3EC;
+  --sidebar-accent-foreground: #1A3229;
+  --sidebar-border: #C1D7B0;
+  --sidebar-ring: #E76F51;
+
+  --radius: 0.875rem;
+}
+
+/* ========================================
+   DARK THEME
+======================================== */
+
+.dark {
+  color-scheme: dark;
+
+  --background: #14251E;
+  --foreground: #FAF9F5;
+
+  --card: #1A3229;
+  --card-foreground: #FAF9F5;
+
+  --popover: #1A3229;
+  --popover-foreground: #FAF9F5;
+
+  --primary: #E76F51;
+  --primary-foreground: #FFFFFF;
+
+  --secondary: #30483B;
+  --secondary-foreground: #FAF9F5;
+
+  --muted: #263A30;
+  --muted-foreground: #B4C4B8;
+
+  --accent: #30483B;
+  --accent-foreground: #FAF9F5;
+
+  --destructive: #F87171;
+
+  --border: #405849;
+  --input: #405849;
+  --ring: #E76F51;
+
+  /* Charts */
+  --chart-1: #E76F51;
+  --chart-2: #C1D7B0;
+  --chart-3: #D9A441;
+  --chart-4: #8BAE98;
+  --chart-5: #F1A18B;
+
+  /* Sidebar */
+  --sidebar: #1A3229;
+  --sidebar-foreground: #FAF9F5;
+  --sidebar-primary: #E76F51;
+  --sidebar-primary-foreground: #FFFFFF;
+  --sidebar-accent: #30483B;
+  --sidebar-accent-foreground: #FAF9F5;
+  --sidebar-border: #405849;
+  --sidebar-ring: #E76F51;
+}
+
+/* ========================================
+   BASE STYLES
+======================================== */
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
   }
-}
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --text: #9ca3af;
-    --text-h: #f3f4f6;
-    --bg: #16171d;
-    --border: #2e303a;
-    --code-bg: #1f2028;
-    --accent: #c084fc;
-    --accent-bg: rgba(192, 132, 252, 0.15);
-    --accent-border: rgba(192, 132, 252, 0.5);
-    --social-bg: rgba(47, 48, 58, 0.5);
-    --shadow:
-      rgba(0, 0, 0, 0.4) 0 10px 15px -3px, rgba(0, 0, 0, 0.25) 0 4px 6px -2px;
+  html {
+    scroll-behavior: smooth;
+    @apply font-sans;
   }
 
-  #social .button-icon {
-    filter: invert(1) brightness(2);
+  body {
+    @apply bg-background text-foreground;
+    font-family: "Geist Variable", sans-serif;
+    margin: 0;
+    min-width: 320px;
+    min-height: 100vh;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
-}
 
-body {
-  margin: 0;
-}
-
-#root {
-  width: 1126px;
-  max-width: 100%;
-  margin: 0 auto;
-  text-align: center;
-  border-inline: 1px solid var(--border);
-  min-height: 100svh;
-  display: flex;
-  flex-direction: column;
-  box-sizing: border-box;
-}
-
-h1,
-h2 {
-  font-family: var(--heading);
-  font-weight: 500;
-  color: var(--text-h);
-}
-
-h1 {
-  font-size: 56px;
-  letter-spacing: -1.68px;
-  margin: 32px 0;
-  @media (max-width: 1024px) {
-    font-size: 36px;
-    margin: 20px 0;
+  button,
+  input,
+  textarea,
+  select {
+    font: inherit;
   }
-}
-h2 {
-  font-size: 24px;
-  line-height: 118%;
-  letter-spacing: -0.24px;
-  margin: 0 0 8px;
-  @media (max-width: 1024px) {
-    font-size: 20px;
+
+  button {
+    cursor: pointer;
   }
-}
-p {
-  margin: 0;
-}
 
-code,
-.counter {
-  font-family: var(--mono);
-  display: inline-flex;
-  border-radius: 4px;
-  color: var(--text-h);
-}
+  h1, h2, h3, h4, h5, h6 {
+      font-family: var(--font-heading);
+      color: var(--foreground);
+  }
 
-code {
-  font-size: 15px;
-  line-height: 135%;
-  padding: 4px 8px;
-  background: var(--code-bg);
+  h1 {
+      font-size: clamp(2.25rem, 5vw, 3.75rem);
+      font-weight: 700;
+      line-height: 1.1;
+      letter-spacing: -0.04em;
+  }
+
+  h2 {
+      font-size: clamp(1.875rem, 4vw, 3rem);
+      font-weight: 700;
+      line-height: 1.15;
+      letter-spacing: -0.035em;
+  }
+
+  h3 {
+      font-size: clamp(1.5rem, 3vw, 2.25rem);
+      font-weight: 600;
+      line-height: 1.2;
+      letter-spacing: -0.025em;
+  }
+
+  h4 {
+      font-size: clamp(1.25rem, 2.5vw, 1.875rem);
+      font-weight: 600;
+      line-height: 1.3;
+  }
+
+  h5 {
+      font-size: clamp(1.125rem, 2vw, 1.5rem);
+      font-weight: 600;
+      line-height: 1.4;
+  }
+
+  h6 {
+      font-size: clamp(1rem, 1.5vw, 1.25rem);
+      font-weight: 600;
+      line-height: 1.4;
+  }
+
+  p {
+      font-size: 1rem;
+      font-weight: 400;
+      line-height: 1.75;
+      color: var(--foreground);
+  }
 }
